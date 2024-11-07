@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Download Your Files</title>
+</head>
+
+<body>
+    <h2>Download Your Decrypted Files</h2>
+
+    <!-- Check if files list is empty -->
+    {% if files %}
+    <ul>
+        {% for file in files %}
+        <li>
+            <a href="{{ url_for('download_file', filename=file) }}">{{ file }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No files available for download at the moment.</p>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+
+</html>
